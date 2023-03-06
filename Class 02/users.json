@@ -1,0 +1,72 @@
+[
+  {
+    "username": "Marko",
+    "password": "password123",
+    "age": 19,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Nikola",
+    "password": "bestPassword",
+    "age": 19,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Ivan",
+    "password": "newPassword",
+    "age": 23,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Goran",
+    "password": "Goce",
+    "age": 43,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Filip",
+    "password": "FilipCar",
+    "age": 15,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Marko",
+    "password": "password123",
+    "age": 19,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Nikola",
+    "password": "bestPassword",
+    "age": 19,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Ivan",
+    "password": "newPassword",
+    "age": 23,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Goran",
+    "password": "Goce",
+    "age": 43,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  },
+  {
+    "username": "Filip",
+    "password": "FilipCar",
+    "age": 15,
+    "isActive": true,
+    "dateCreated": "06.03.2023"
+  }
+]
