@@ -1,0 +1,20 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "doe",
+    "email": "JohnDoe@gmai.com",
+    "isCurrentlyTeaching": "Basic Node JS",
+    "timeEmployed": "1 year",
+    "coursesFinished": "12",
+    "id": "474e35e8-37b2-458c-9b9a-5a54a9118b60"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "doe",
+    "email": "JaneDoe@gmai.com",
+    "isCurrentlyTeaching": "Basic JS",
+    "timeEmployed": "2 months",
+    "coursesFinished": "1",
+    "id": "4b5f22dc-bf2f-4d93-86cd-ed39541f4d86"
+  }
+]
