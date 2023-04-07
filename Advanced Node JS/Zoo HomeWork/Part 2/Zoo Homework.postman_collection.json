@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "99d92f15-3a0b-43ef-8629-be905a94393b",
+		"name": "Zoo Homework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26291024"
+	},
+	"item": [
+		{
+			"name": "Zookeepers",
+			"item": [
+				{
+					"name": "Get All Zookeepers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/zookeepers/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"zookeepers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Zookeeper",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marko Car\",\r\n  \"age\": 100,\r\n  \"location\": \"Kumanovo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/zookeepers/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"zookeepers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Zookeeper",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marko Ingjikj\",\r\n  \"age\": 19,\r\n  \"location\": \"Kumanovo\",\r\n  \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/zookeepers/643044c111e650ebf4e24308",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"zookeepers",
+								"643044c111e650ebf4e24308"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Zookeeper",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/zookeepers/64304587cf4e6477e7d45fa1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"zookeepers",
+								"64304587cf4e6477e7d45fa1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Animals",
+			"item": [
+				{
+					"name": "Get All Animals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/animals/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"animals",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Animal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Zeki\",\r\n  \"type\": \"Rabbit\",\r\n  \"age\": 1,\r\n  \"location\": \"Skopje\",\r\n  \"gender\": \"F\",\r\n  \"characteristics\": {\r\n    \"food\": [\"Carrot\",\"lettuce\"],\r\n    \"colour\": \"white\",\r\n    \"weight\": 10,\r\n    \"enclosure\": \"field\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/animals/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"animals",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Animal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Zeki\",\r\n  \"type\": \"Rabbit\",\r\n  \"age\": 2,\r\n  \"location\": \"Skopje\",\r\n  \"gender\": \"F\",\r\n  \"characteristics\": {\r\n    \"food\": [\"Carrot\",\"lettuce\"],\r\n    \"colour\": \"white\",\r\n    \"weight\": 10,\r\n    \"enclosure\": \"field\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/animals/643049ca492d62850df9227d",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"animals",
+								"643049ca492d62850df9227d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Animal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/animals/642db3a2e68180fe5a9a384e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"animals",
+								"642db3a2e68180fe5a9a384e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
