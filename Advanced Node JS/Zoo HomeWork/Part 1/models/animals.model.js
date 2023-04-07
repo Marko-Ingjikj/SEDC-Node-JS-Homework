@@ -1,35 +1,52 @@
-import { getDb } from "../db/mongo-connection.js";
-import { ObjectId } from "mongodb";
+import { Schema, model } from "mongoose";
 
-export default class AnimalsModel {
-  static async getAllAnimals() {
-    const collection = await getDb().collection("animals");
-    const animals = await collection.find().toArray();
+const characteristicsStructure = new Schema({
+  food: {
+    type: Array,
+  },
+  colour: {
+    type: String,
+  },
+  isDangerous: {
+    type: Boolean,
+    default: false,
+  },
+  weight: {
+    type: Number,
+    min: 1,
+  },
+  enclosure: {
+    type: String,
+    required: true,
+  },
+});
 
-    return animals;
-  }
+const animalSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+    minLength: 2,
+  },
+  age: {
+    type: Number,
+    required: true,
+    min: 1,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+    enum: ["M", "F"],
+  },
+  characteristics: {
+    type: characteristicsStructure,
+    required: true,
+  },
+});
 
-  static async addNewAnimal(newAnimalData) {
-    const collection = await getDb().collection("animals");
-    const newAnimal = collection.insertOne(newAnimalData);
+const Animal = model("Animal", animalSchema);
 
-    return newAnimal;
-  }
-
-  static async updateAnimal(updateData, animalsId) {
-    const collection = await getDb().collection("animals");
-    const updateAnimal = collection.updateOne(
-      { _id: new ObjectId(animalsId) },
-      { $set: updateData }
-    );
-
-    return updateAnimal;
-  }
-
-  static async deleteAnimal(animalsId) {
-    const collection = await getDb().collection("animals");
-    const deletedAnimal = await collection.deleteOne({
-      _id: new ObjectId(animalsId),
-    });
-  }
-}
+export default Animal;
