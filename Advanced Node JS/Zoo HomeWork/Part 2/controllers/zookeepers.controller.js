@@ -1,9 +1,9 @@
-import ZookeepersModel from "../models/zookeepers.model.js";
+import ZookeeperService from "../services/zookeepers.service.js";
 
 export default class ZookeepersController {
   static async getAllZookeepers(req, res) {
     try {
-      const zookeepers = await ZookeepersModel.getAllZookeepers();
+      const zookeepers = await ZookeeperService.getAllZookeepers();
 
       res.status(200).send(zookeepers);
     } catch (error) {
@@ -13,7 +13,7 @@ export default class ZookeepersController {
 
   static async addNewZookeeper(req, res) {
     try {
-      const NewZookeeper = await ZookeepersModel.addNewZookeeper(req.body);
+      const NewZookeeper = await ZookeeperService.addNewZookeeper(req.body);
 
       res.status(200).send(NewZookeeper);
     } catch (error) {
@@ -23,7 +23,7 @@ export default class ZookeepersController {
 
   static async updateZookeeper(req, res) {
     try {
-      const updateZookeeper = await ZookeepersModel.updateZookeeper(
+      const updateZookeeper = await ZookeeperService.updateZookeeper(
         req.body,
         req.params.id
       );
@@ -36,7 +36,7 @@ export default class ZookeepersController {
 
   static async deleteZookeeper(req, res) {
     try {
-      await ZookeepersModel.deleteZookeeper(req.params.id);
+      await ZookeeperService.deleteZookeeper(req.params.id);
 
       res.status(200).send("Deleted successfully");
     } catch (error) {

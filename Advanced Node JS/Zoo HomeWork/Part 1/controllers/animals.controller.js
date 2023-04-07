@@ -1,9 +1,9 @@
-import AnimalService from "../services/animals.service.js";
+import AnimalsModel from "../models/animals.model.js";
 
 export default class AnimalsController {
   static async getAllAnimals(req, res) {
     try {
-      const animals = await AnimalService.getAllAnimals();
+      const animals = await AnimalsModel.getAllAnimals();
 
       res.status(200).send(animals);
     } catch (error) {
@@ -13,7 +13,7 @@ export default class AnimalsController {
 
   static async addNewAnimal(req, res) {
     try {
-      const newAnimal = await AnimalService.addNewAnimal(req.body);
+      const newAnimal = await AnimalsModel.addNewAnimal(req.body);
 
       res.status(200).send(newAnimal);
     } catch (error) {
@@ -23,7 +23,7 @@ export default class AnimalsController {
 
   static async updateAnimal(req, res) {
     try {
-      const updatedAnimal = await AnimalService.updateAnimal(
+      const updatedAnimal = await AnimalsModel.updateAnimal(
         req.body,
         req.params.id
       );
@@ -36,7 +36,7 @@ export default class AnimalsController {
 
   static async deleteAnimal(req, res) {
     try {
-      await AnimalService.deleteAnimal(req.params.id);
+      await AnimalsModel.deleteAnimal(req.params.id);
 
       res.status(200).send("Deleted succesfully");
     } catch (error) {

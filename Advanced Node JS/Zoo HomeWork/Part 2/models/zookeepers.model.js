@@ -1,35 +1,27 @@
-import { getDb } from "../db/mongo-connection.js";
-import { ObjectId } from "mongodb";
+import { Schema, model } from "mongoose";
 
-export default class ZookeepersModel {
-  static async getAllZookeepers() {
-    const collection = await getDb().collection("zookeepers");
-    const zookeepers = await collection.find().toArray();
+const zookeepersSchema = new Schema({
+  name: {
+    type: String,
+    required: [true, "Name is required"],
+    minLength: 5,
+  },
+  age: {
+    type: Number,
+    required: [true, "Age is required"],
+    min: 18,
+    max: 110,
+  },
+  location: {
+    type: String,
+    required: [true, "Location is required"],
+  },
+  isActive: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-    return zookeepers;
-  }
+const Zookeeper = model("Zookeeper", zookeepersSchema);
 
-  static async addNewZookeeper(NewZookeeperData) {
-    const collection = await getDb().collection("zookeepers");
-    const newZookeeper = collection.insertOne(NewZookeeperData);
-
-    return { id: newZookeeper.insertedId, ...NewZookeeperData };
-  }
-
-  static async updateZookeeper(updateData, zookeeperId) {
-    const collection = await getDb().collection("zookeepers");
-    const updatedZookeeper = await collection.updateOne(
-      { _id: new ObjectId(zookeeperId) },
-      { $set: updateData }
-    );
-
-    return updatedZookeeper;
-  }
-
-  static async deleteZookeeper(zookeeperId) {
-    const collection = await getDb().collection("zookeepers");
-    const deletedZookeeper = await collection.deleteOne({
-      _id: new ObjectId(zookeeperId),
-    });
-  }
-}
+export default Zookeeper;
