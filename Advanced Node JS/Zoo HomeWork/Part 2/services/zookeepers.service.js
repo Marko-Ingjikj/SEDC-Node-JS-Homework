@@ -9,6 +9,18 @@ export default class ZookeeperService {
     return zookeepers;
   }
 
+  static async getAllZookeepersQuery(query) {
+    const zookeepers = await Zookeeper.find(query);
+
+    return zookeepers;
+  }
+
+  static async getZookeeperById(zookeeperId) {
+    const zookeeper = await Zookeeper.findById(zookeeperId);
+
+    return zookeeper;
+  }
+
   static async addNewZookeeper(zookeeperData) {
     const zookeeper = new Zookeeper(zookeeperData);
 

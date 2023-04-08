@@ -20,6 +20,10 @@ const zookeepersSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  animals: {
+    type: Schema.Types.ObjectId,
+    ref: "Animal",
+  },
 });
 
 const Zookeeper = model("Zookeeper", zookeepersSchema);

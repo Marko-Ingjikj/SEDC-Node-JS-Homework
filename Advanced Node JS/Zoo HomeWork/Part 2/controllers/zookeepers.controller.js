@@ -2,10 +2,42 @@ import ZookeeperService from "../services/zookeepers.service.js";
 
 export default class ZookeepersController {
   static async getAllZookeepers(req, res) {
-    try {
-      const zookeepers = await ZookeeperService.getAllZookeepers();
+    let query = {};
 
-      res.status(200).send(zookeepers);
+    if (req.query.location) {
+      query.location = req.query.location;
+    }
+
+    if (req.query.isActive) {
+      query.isActive = req.query.isActive;
+    }
+
+    if (req.query.age) {
+      query.age = { $gte: parseInt(req.query.age) };
+    }
+
+    try {
+      if (query) {
+        const zookeepers = await ZookeeperService.getAllZookeepersQuery(query);
+
+        res.status(200).send(zookeepers);
+      } else {
+        const zookeepers = await ZookeeperService.getAllZookeepers();
+
+        res.status(200).send(zookeepers);
+      }
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  }
+
+  static async getAnimalById(req, res) {
+    const id = req.params.id;
+
+    try {
+      const zookeeper = await ZookeeperService.getZookeeperById(id);
+
+      res.status(200).send(zookeeper);
     } catch (error) {
       res.status(500).send(error.message);
     }

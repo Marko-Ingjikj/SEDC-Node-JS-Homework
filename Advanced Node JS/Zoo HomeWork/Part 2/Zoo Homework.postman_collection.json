@@ -15,7 +15,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/api/zookeepers/",
+							"raw": "{{URL}}/api/zookeepers/?isActive=true",
 							"host": [
 								"{{URL}}"
 							],
@@ -23,6 +23,31 @@
 								"api",
 								"zookeepers",
 								""
+							],
+							"query": [
+								{
+									"key": "isActive",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Zookeeper by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/zookeepers/643044c111e650ebf4e24308",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"zookeepers",
+								"643044c111e650ebf4e24308"
 							]
 						}
 					},
@@ -35,7 +60,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Marko Car\",\r\n  \"age\": 100,\r\n  \"location\": \"Kumanovo\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Marko Ingjikj\",\r\n  \"age\": 19,\r\n  \"location\": \"Kumanovo\",\r\n  \"isActive\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -123,7 +148,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/api/animals/",
+							"raw": "{{URL}}/api/animals/?location=Skopje&age=2&gender=M",
 							"host": [
 								"{{URL}}"
 							],
@@ -131,6 +156,39 @@
 								"api",
 								"animals",
 								""
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "Skopje"
+								},
+								{
+									"key": "age",
+									"value": "2"
+								},
+								{
+									"key": "gender",
+									"value": "M"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Animal By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/animals/64315a5b01da781cb297de29",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"animals",
+								"64315a5b01da781cb297de29"
 							]
 						}
 					},
@@ -143,7 +201,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Zeki\",\r\n  \"type\": \"Rabbit\",\r\n  \"age\": 1,\r\n  \"location\": \"Skopje\",\r\n  \"gender\": \"F\",\r\n  \"characteristics\": {\r\n    \"food\": [\"Carrot\",\"lettuce\"],\r\n    \"colour\": \"white\",\r\n    \"weight\": 10,\r\n    \"enclosure\": \"field\"\r\n  }\r\n}",
+							"raw": "{\r\n   \"name\": \"Zeki\",\r\n  \"type\": \"Rabbit\",\r\n  \"age\": 3,\r\n  \"location\": \"Skopje\",\r\n  \"gender\": \"M\",\r\n  \"characteristics\": {\r\n    \"food\": [\"Carrot\",\"lettuce\"],\r\n    \"colour\": \"white\",\r\n    \"weight\": 10,\r\n    \"enclosure\": \"field\"\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,7 +229,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Zeki\",\r\n  \"type\": \"Rabbit\",\r\n  \"age\": 2,\r\n  \"location\": \"Skopje\",\r\n  \"gender\": \"F\",\r\n  \"characteristics\": {\r\n    \"food\": [\"Carrot\",\"lettuce\"],\r\n    \"colour\": \"white\",\r\n    \"weight\": 10,\r\n    \"enclosure\": \"field\"\r\n  }\r\n}",
+							"raw": "{\r\n   \"name\": \"Zeki\",\r\n  \"type\": \"Rabbit\",\r\n  \"age\": 2,\r\n  \"location\": \"Skopje\",\r\n  \"gender\": \"M\",\r\n  \"characteristics\": {\r\n    \"food\": [\"Carrot\",\"lettuce\"],\r\n    \"colour\": \"white\",\r\n    \"weight\": 10,\r\n    \"enclosure\": \"field\"\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,6 +245,35 @@
 								"api",
 								"animals",
 								"643049ca492d62850df9227d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Animal To Zookeeper",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"zookeepers\": [\"64315a7f01da781cb297de2c\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/animals/64315a5b01da781cb297de29/zookeepers",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"animals",
+								"64315a5b01da781cb297de29",
+								"zookeepers"
 							]
 						}
 					},

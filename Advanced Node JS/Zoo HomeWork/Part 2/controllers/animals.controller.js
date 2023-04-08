@@ -2,10 +2,42 @@ import AnimalService from "../services/animals.service.js";
 
 export default class AnimalsController {
   static async getAllAnimals(req, res) {
-    try {
-      const animals = await AnimalService.getAllAnimals();
+    let query = {};
 
-      res.status(200).send(animals);
+    if (req.query.location) {
+      query.location = req.query.location;
+    }
+
+    if (req.query.gender) {
+      query.gender = req.query.gender;
+    }
+
+    if (req.query.age) {
+      query.age = { $gte: parseInt(req.query.age) };
+    }
+
+    try {
+      if (query) {
+        const animals = await AnimalService.getAllAnimalsQuery(query);
+
+        res.status(200).send(animals);
+      } else {
+        const animals = await AnimalService.getAllAnimals();
+
+        res.status(200).send(animals);
+      }
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  }
+
+  static async getAnimalById(req, res) {
+    const id = req.params.id;
+
+    try {
+      const animal = await AnimalService.getAnimalById(id);
+
+      res.status(200).send(animal);
     } catch (error) {
       res.status(500).send(error.message);
     }
@@ -40,6 +72,22 @@ export default class AnimalsController {
 
       res.status(200).send("Deleted succesfully");
     } catch (error) {
+      res.status(500).send(error.message);
+    }
+  }
+
+  static async assignZookeeper(req, res) {
+    try {
+      const animalId = req.params.id;
+      const zookeeperIds = req.body.zookeepers;
+
+      const response = await AnimalService.assignZookeeper(
+        animalId,
+        zookeeperIds
+      );
+      res.status(200).send(response);
+    } catch (error) {
+      console.log(error);
       res.status(500).send(error.message);
     }
   }

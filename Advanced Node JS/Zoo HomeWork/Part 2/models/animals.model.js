@@ -45,6 +45,12 @@ const animalSchema = new Schema({
     type: characteristicsStructure,
     required: true,
   },
+  zookeepers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Zookeeper",
+    },
+  ],
 });
 
 const Animal = model("Animal", animalSchema);
